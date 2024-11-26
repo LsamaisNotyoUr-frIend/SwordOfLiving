@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwrrsqxcjcpv7"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Scripts/health_bar.gd" id="1_kwvem"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgrsd"]
+bg_color = Color(0.446504, 0, 0.0622566, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5dd3"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhtop"]
+bg_color = Color(0.32549, 0, 0.109804, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="HealthBar" type="ProgressBar" node_paths=PackedStringArray("progress_bar")]
+offset_right = 380.0
+offset_bottom = 27.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_qgrsd")
+value = 90.0
+show_percentage = false
+script = ExtResource("1_kwvem")
+progress_bar = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_c5dd3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fhtop")
+value = 100.0
+show_percentage = false

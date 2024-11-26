@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://q4xmeqwt5mxu"]
+
+[ext_resource type="Script" path="res://Scripts/HurtBox.gd" id="1_2hewo"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Scripts/monster.gd" id="1_m8wm6"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="3_rvl4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ww182"]
+size = Vector2(58, 49)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2y7i"]
+radius = 39.2046
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2fh4"]
+radius = 29.2746
+
+[node name="Monster" type="CharacterBody2D" node_paths=PackedStringArray("hurtbox", "hitbox")]
+script = ExtResource("1_m8wm6")
+hurtbox = NodePath("HurtBox")
+timer = 0.8
+hitbox = NodePath("Hitbox")
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("1_2hewo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(36, 0.5)
+shape = SubResource("RectangleShape2D_ww182")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = -21.0
+offset_right = 56.0
+offset_bottom = 19.0
+color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(37, 0)
+shape = SubResource("CircleShape2D_y2y7i")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(37, 0)
+script = ExtResource("3_rvl4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_l2fh4")

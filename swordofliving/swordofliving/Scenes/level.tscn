@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://db8nfl8asxi1t"]
+
+[ext_resource type="PackedScene" uid="uid://b07pkhm771yfu" path="res://Scenes/Player/player.tscn" id="1_1w8ch"]
+[ext_resource type="PackedScene" uid="uid://bnul641st4f15" path="res://Scenes/Enemies/horseman.tscn" id="2_62bv1"]
+[ext_resource type="PackedScene" uid="uid://prijt0irb33j" path="res://Scenes/Enemies/Warhog.tscn" id="3_bm4dj"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_1w8ch")]
+speed = 4000.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+
+[node name="warhog" parent="." instance=ExtResource("3_bm4dj")]
+position = Vector2(261, -94)
+scale = Vector2(1.5, 1.5)
+
+[node name="horseman" parent="." instance=ExtResource("2_62bv1")]
+position = Vector2(-290, 15)
+speed = 1500.0
